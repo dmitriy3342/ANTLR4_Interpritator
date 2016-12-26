@@ -7,7 +7,8 @@
 ## Уже реализованно
 
 ### Поддержка объектов
-    ...
+
+```Java
  class ClassName {
     
     fun1(params){
@@ -18,4 +19,4 @@
  str1 = "Строка1"
  tmp1 = ClassName.fun1();
  print(tmp1);
- '''
+```
