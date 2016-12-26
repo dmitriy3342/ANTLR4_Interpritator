@@ -17,6 +17,20 @@
  }
  
  str1 = "Строка1"
- tmp1 = ClassName.fun1();
+ tmp1 = ClassName.fun1(str1);
  print(tmp1);
 ```
+>"Строка1"
+
+### Цикл forearch
+
+```Java
+a = 0;
+forearch(a,3){
+   print(a);
+}
+```
+>0
+>1
+>2
+>3
