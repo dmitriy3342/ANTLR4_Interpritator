@@ -1,9 +1,6 @@
 package SIB301.table_ids;
 
-/**
- * Created by dmitriy on 05.12.2016.
- */
-public class LinkedHashEntry <T> {
+public class LinkedHashEntry<T> {
     private String name;
     private T value;
     LinkedHashEntry next;

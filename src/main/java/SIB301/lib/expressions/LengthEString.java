@@ -1,11 +1,7 @@
 package SIB301.lib.expressions;
 
 import SIB301.lib.atoms.EString;
-import SIB301.lib.atoms.None;
 
-/**
- * Created by dmitr on 25.12.2016.
- */
 public class LengthEString extends Expression {
     Expression expression;
 

@@ -5,9 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by dmitr on 05.12.2016.
- */
 public class TableIDsWithScope<T> {
 
     //    final static String SCOPE_DEFAULT = "scope_default";

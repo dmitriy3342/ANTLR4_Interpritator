@@ -2,9 +2,6 @@ package SIB301.lib.expressions;
 
 import SIB301.lib.atoms.EString;
 
-/**
- * Created by dmitr on 25.12.2016.
- */
 public class Substring extends Expression {
     Expression expression;
     Integer start;

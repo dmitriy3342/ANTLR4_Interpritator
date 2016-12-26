@@ -1,8 +1,5 @@
 package SIB301.lib.expressions;
 
-/**
- * Created by dmitr on 26.12.2016.
- */
 public class EPrint extends Expression{
     Expression expression;
 

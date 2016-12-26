@@ -2,9 +2,6 @@ package SIB301.lib.expressions;
 
 import SIB301.lib.atoms.None;
 
-/**
- * Created by dmitr on 25.12.2016.
- */
 public class Assignment extends  Expression {
     Identifier identifier;
     Expression expression;

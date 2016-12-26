@@ -1,16 +1,11 @@
 package SIB301.lib;
 
-import SIB301.lib.atoms.EChar;
+
 import SIB301.lib.atoms.EInt;
 import SIB301.lib.atoms.EString;
 import SIB301.lib.atoms.None;
 import SIB301.lib.expressions.Expression;
-import SIB301.lib.expressions.Identifier;
-import SIB301.lib.expressions.bool_expression.BooleanExpression;
 
-/**
- * Created by dmitr on 26.12.2016.
- */
 public class EForearch extends Expression {
     Expression expression1;
     Expression expression2;
@@ -50,20 +45,20 @@ public class EForearch extends Expression {
     public Expression interpreter() {
         Expression expr1 = expression1.interpreter();
         Expression expr2 = expression2.interpreter();
-        System.out.println("(forearch.interpreter(" + expr1.toString() + "," + expr2.toString() + ")") ;
+        System.out.println("(forearch.interpreter(" + expr1.toString() + "," + expr2.toString() + ")");
 
-        if(expr1 instanceof EInt && expr2 instanceof EInt){
-            for(int i = ((EInt) expr1).getValue(); i<= ((EInt) expr2).getValue(); i++){
+        if (expr1 instanceof EInt && expr2 instanceof EInt) {
+            for (int i = ((EInt) expr1).getValue(); i <= ((EInt) expr2).getValue(); i++) {
                 ((EInt) expr1).setValue(i);
                 eBlock.interpreter();
             }
             return new None();
         }
 
-        if(expr1 instanceof EString && expr2 instanceof EString){
+        if (expr1 instanceof EString && expr2 instanceof EString) {
             Expression expr = expr1.interpreter();
-            for(Character c : ((EString) expr2.interpreter()).getValue().toCharArray()){
-                ((EString) expr).setValue(c+"");
+            for (Character c : ((EString) expr2.interpreter()).getValue().toCharArray()) {
+                ((EString) expr).setValue(c + "");
                 eBlock.interpreter();
             }
             return new None();

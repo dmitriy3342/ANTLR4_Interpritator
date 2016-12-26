@@ -8,9 +8,6 @@ import SIB301.table_ids.TableIDsWithScope;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by dmitr on 26.12.2016.
- */
 public class EBlock extends Expression{
     List<Expression> operations;
     String context;

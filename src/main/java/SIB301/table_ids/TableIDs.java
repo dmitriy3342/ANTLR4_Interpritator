@@ -1,8 +1,5 @@
 package SIB301.table_ids;
 
-/**
- * Created by dmitriy on 05.12.2016.
- */
 
 public class TableIDs <T>{
     private final int TABLE_SIZE ;

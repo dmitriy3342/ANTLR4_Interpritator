@@ -4,9 +4,6 @@ import SIB301.lib.atoms.EBool;
 import SIB301.lib.expressions.Expression;
 import SIB301.lib.expressions.bool_expression.BooleanExpression;
 
-/**
- * Created by dmitr on 26.12.2016.
- */
 public class EIfElse extends Expression {
     BooleanExpression condition;
     EBlock ifblock;

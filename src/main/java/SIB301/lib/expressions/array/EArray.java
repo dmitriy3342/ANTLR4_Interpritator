@@ -6,9 +6,7 @@ import SIB301.lib.expressions.Expression;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by dmitr on 26.12.2016.
- */
+
 public class EArray extends Expression {
     List< Expression >  list;
 
