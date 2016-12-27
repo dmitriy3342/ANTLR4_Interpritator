@@ -5,6 +5,7 @@ import SIB301.lib.atoms.EInt;
 import SIB301.lib.atoms.EString;
 import SIB301.lib.atoms.None;
 import SIB301.lib.expressions.Expression;
+import SIB301.lib.log.LogStats;
 
 public class EForearch extends Expression {
     Expression expression1;
@@ -45,7 +46,7 @@ public class EForearch extends Expression {
     public Expression interpreter() {
         Expression expr1 = expression1.interpreter();
         Expression expr2 = expression2.interpreter();
-        System.out.println("(forearch.interpreter(" + expr1.toString() + "," + expr2.toString() + ")");
+        LogStats.println("(forearch.interpreter(" + expr1.toString() + "," + expr2.toString() + ")");
 
         if (expr1 instanceof EInt && expr2 instanceof EInt) {
             for (int i = ((EInt) expr1).getValue(); i <= ((EInt) expr2).getValue(); i++) {

@@ -79,9 +79,9 @@ public class App {
     }
 
     public static void main(String[] args) {
-        String expression = getExp1();
+     //   String expression = getExp1();
 
-        String ex = "" +
+        String expression = "" +
                 "                                                                                                   \n" +
                 "       a=10;                                                                                            \n" +
                 "       print(a);                                                                                            \n" +

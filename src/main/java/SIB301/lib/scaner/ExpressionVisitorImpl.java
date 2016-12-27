@@ -11,6 +11,7 @@ import SIB301.lib.expressions.bool_expression.AEqualB;
 import SIB301.lib.expressions.bool_expression.AGeaterB;
 import SIB301.lib.expressions.bool_expression.ALessB;
 import SIB301.lib.expressions.bool_expression.BooleanExpression;
+import SIB301.lib.log.LogStats;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,15 +116,15 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
 //        }
 
         if (ctx.startSubstring != null && ctx.finishSubstring != null) {
-            System.out.println("(visitExpr subString) ");
+            LogStats.println("(visitExpr subString) ");
             Integer start = Integer.parseInt(ctx.startSubstring.getText());
             Integer finish = Integer.parseInt(ctx.finishSubstring.getText());
             return new Substring(visitExpr(ctx.str), start, finish);
         }
 
         if (ctx.op != null && ctx.left != null && ctx.right != null) {
-            System.out.println("(visitExpr op) ");
-//            System.out.println("OP : " + ctx.op.getText());
+            LogStats.println("(visitExpr op) ");
+//            LogStats.println("OP : " + ctx.op.getText());
             String op = ctx.op.getText();
 
             Expression left = visit(ctx.left);
@@ -131,33 +132,33 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
 
             if (left != null && right != null) {
 
-//                System.out.println("cleft : " + ctx.left.getText());
-//                System.out.println("cright : " + ctx.right.getText());
+//                LogStats.println("cleft : " + ctx.left.getText());
+//                LogStats.println("cright : " + ctx.right.getText());
 
-//                System.out.println("left : " + left);
-//                System.out.println("right : " + right);
+//                LogStats.println("left : " + left);
+//                LogStats.println("right : " + right);
 
                 switch (op.charAt(0)) {
                     case '*':
-//                        System.out.println('*');
+//                        LogStats.println('*');
                         return new Mul(left, right);
                     case '/':
-//                        System.out.println('/');
+//                        LogStats.println('/');
                         return new Del(left, right);
                     case '+':
-//                        System.out.println('+');
+//                        LogStats.println('+');
                         return new Plus(left, right);
                     case '-':
-//                        System.out.println('-');
+//                        LogStats.println('-');
                         return new Minus(left, right);
                     case '=':
-//                        System.out.println('-');
+//                        LogStats.println('-');
                         return new AEqualB(left, right);
                     case '<':
-//                        System.out.println('-');
+//                        LogStats.println('-');
                         return new ALessB(left, right);
                     case '>':
-//                        System.out.println('-');
+//                        LogStats.println('-');
                         return new AGeaterB(left, right);
                 }
             }
@@ -206,7 +207,7 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
             Identifier identifier = (Identifier) visitIdentificator(ctx.identificator());
             Expression tmp = visit(ctx.expr());
             identifier.putExpression(tmp);
-            System.out.println("(visitObjectAssignment) " + ctx.identificator().getText() + " = " + tmp + ";");
+            LogStats.println("(visitObjectAssignment) " + ctx.identificator().getText() + " = " + tmp + ";");
             return identifier;
         }
 
@@ -224,7 +225,7 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
 
     @Override
     public Expression visitArrayGet(ExpressionParser.ArrayGetContext ctx) {
-        System.out.println("(visitArrayGet)" + getCurrenContext() + ctx.identificator().getText());
+        LogStats.println("(visitArrayGet)" + getCurrenContext() + ctx.identificator().getText());
         EArray eArray = (EArray) eContext.findChild(getCurrenContext() + ctx.identificator().getText());
 
         return new EArrayGet(eArray, visit(ctx.expr()));
@@ -232,7 +233,7 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
 
     @Override
     public Expression visitArrayCreate(ExpressionParser.ArrayCreateContext ctx) {
-        System.out.println("(visitArrayCreate)" + getCurrenContext() + ctx.identificator().getText());
+        LogStats.println("(visitArrayCreate)" + getCurrenContext() + ctx.identificator().getText());
         EArray eArray = new EArray();
         for (ExpressionParser.ParamsContext param : ctx.params()) {
             eArray.add(visit(param).interpreter());
@@ -243,7 +244,7 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
 
     @Override
     public Expression visitArrayAssignedItem(ExpressionParser.ArrayAssignedItemContext ctx) {
-        System.out.println("(visitArrayAssignedItem)" + getCurrenContext() + ctx.identificator().getText());
+        LogStats.println("(visitArrayAssignedItem)" + getCurrenContext() + ctx.identificator().getText());
         EArray eArray = (EArray) eContext.findChild(getCurrenContext() + ctx.identificator().getText());
         return new EArraySet(eArray, visit(ctx.index), visit(ctx.index));
     }
@@ -268,13 +269,13 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
 
     @Override
     public Expression visitWhileblock(ExpressionParser.WhileblockContext ctx) {
-        System.out.println("(visitIfalse) " + ctx.condition().getText());
+        LogStats.println("(visitIfalse) " + ctx.condition().getText());
 
         EWhile eWhile;
         EBlock eBlock = new EBlock(eContext, getCurrenContext() + getIndex());
 
         for (ExpressionParser.ExprContext context : ctx.expr()) {
-            System.out.println(getCurrenContext() + " add : " + context.getText());
+            LogStats.println(getCurrenContext() + " add : " + context.getText());
             eBlock.addOperation(visitExpr(context));
         }
 
@@ -290,8 +291,8 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
     @Override
     public Expression visitInitaialFunction(ExpressionParser.InitaialFunctionContext ctx) {
         inBlock = true;
-        System.out.println("(visitInitaialFunction) " + getCurrenContext());
-        System.out.println("(visitInitaialFunction) " + ctx.identificator().getText());
+        LogStats.println("(visitInitaialFunction) " + getCurrenContext());
+        LogStats.println("(visitInitaialFunction) " + ctx.identificator().getText());
         setCurrenContextFunction(ctx.functionName.getText());
         EFunction eFunction = new EFunction(eContext, getCurrenContextClass()+ ctx.identificator().getText());
 
@@ -300,17 +301,17 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
         }
 
         for (ExpressionParser.IfalseContext ifalseContext : ctx.ifalse()) {
-            System.out.println(getCurrenContext() + " add : " + ifalseContext.getText());
+            LogStats.println(getCurrenContext() + " add : " + ifalseContext.getText());
             eFunction.addOperation(visitIfalse(ifalseContext));
         }
         for (ExpressionParser.ForelContext forelContext : ctx.forel()) {
-            System.out.println(getCurrenContext() + " add : " + forelContext.getText());
+            LogStats.println(getCurrenContext() + " add : " + forelContext.getText());
             eFunction.addOperation(visitForel(forelContext));
         }
 
 
         for (ExpressionParser.ExprContext expr : ctx.expr()) {
-            System.out.println(getCurrenContext() + " add : " + expr.getText());
+            LogStats.println(getCurrenContext() + " add : " + expr.getText());
             eFunction.addOperation(visitExpr(expr));
         }
 
@@ -324,7 +325,7 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
 
     @Override
     public Expression visitCallFunction(ExpressionParser.CallFunctionContext ctx) {
-        System.out.println("(visitCallFunction) " + ctx.identificator().getText());
+        LogStats.println("(visitCallFunction) " + ctx.identificator().getText());
 
         EFunction eFunction = (EFunction) eContext.findChild(getCurrenContext()+ ctx.identificator().getText());
 
@@ -390,23 +391,23 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
 
         if (ctx.CHAR() != null) {
             EChar tmp = new EChar(ctx.getText().split("<<")[1].split(">>")[0].charAt(0));
-            System.out.println("(visitAtom) " + tmp.toString());
+            LogStats.println("(visitAtom) " + tmp.toString());
             return tmp;
         }
 
         if (ctx.NUMBER() != null) {
             EInt tmp = new EInt(Integer.parseInt(ctx.getText()));
-            System.out.println("(visitAtom) " + tmp.toString());
+            LogStats.println("(visitAtom) " + tmp.toString());
             return tmp;
         }
         if (ctx.STRING() != null) {
             EString tmp = new EString(ctx.getText().split("\"")[1]);
-            System.out.println("(visitAtom) " + tmp.toString());
+            LogStats.println("(visitAtom) " + tmp.toString());
             return tmp;
         }
         if (ctx.BOOLEAN() != null) {
             EBool tmp = new EBool(Boolean.parseBoolean(ctx.getText()));
-            System.out.println("(visitAtom) " + tmp.toString());
+            LogStats.println("(visitAtom) " + tmp.toString());
             return tmp;
         }
 
@@ -416,14 +417,14 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
 
     @Override
     public Expression visitIfalse(ExpressionParser.IfalseContext ctx) {
-        System.out.println("(visitIfalse) " + ctx.condition().getText());
+        LogStats.println("(visitIfalse) " + ctx.condition().getText());
         inBlock = true;
         EIfElse ifElse;
 
         EBlock eBlockif = new EBlock(eContext, getCurrenContext() + getIndex());
 
         for (ExpressionParser.IfblockContext ifblockContext : ctx.ifblock()) {
-            System.out.println(getCurrenContext() + " add : " + ifblockContext.getText());
+            LogStats.println(getCurrenContext() + " add : " + ifblockContext.getText());
             eBlockif.addOperation(visitExpr(ifblockContext.expr()));
         }
 
@@ -431,7 +432,7 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
             EBlock eBlockElse = new EBlock(eContext, getCurrenContext() + getIndex());
 
             for (ExpressionParser.ElseblockContext blockContext : ctx.elseblock()) {
-                System.out.println(getCurrenContext() + " add : " + blockContext.getText());
+                LogStats.println(getCurrenContext() + " add : " + blockContext.getText());
                 eBlockElse.addOperation(visitExpr(blockContext.expr()));
             }
             ifElse = new EIfElse((BooleanExpression) visitExpr(ctx.condition().expr()), eBlockif, eBlockElse);
@@ -448,7 +449,7 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
     @Override
     public Expression visitPrint(ExpressionParser.PrintContext ctx) {
 
-        System.out.println("print( " + ctx.expr().getText() + " );");
+        LogStats.println("print( " + ctx.expr().getText() + " );");
         Expression ePrint;
         Expression tmp = visit(ctx.expr());
 
