@@ -1,24 +1,29 @@
 package SIB301.lib.expressions;
 
 import SIB301.lib.atoms.None;
-import SIB301.table_ids.TableIDsWithScope;
+import SIB301.lib.context.EContext;
 
 public class Identifier extends Expression {
 
-    TableIDsWithScope<Expression> table;
+    EContext<Expression> eContext;
     String identifier;
 
-    public Identifier(TableIDsWithScope<Expression> table, String identifier) {
-        this.table = table;
+    public Identifier(EContext<Expression> eContext, String identifier) {
+        this.eContext = eContext;
         this.identifier = identifier;
     }
 
+    public String getIdentifier() {
+        return identifier;
+    }
+
+
     public void putExpression(Expression expression) {
-        table.put(identifier, expression);
+        eContext.addChild(identifier, expression);
     }
 
     public Expression getExpression() {
-        return table.get(identifier) != null ? table.get(identifier) : new None();
+        return eContext.findChild(identifier) != null ? eContext.findChild(identifier) : new None();
     }
 
     @Override

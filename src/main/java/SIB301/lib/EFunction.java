@@ -1,13 +1,12 @@
 package SIB301.lib;
 
 import SIB301.lib.atoms.None;
+import SIB301.lib.context.EContext;
 import SIB301.lib.expressions.Expression;
 import SIB301.lib.expressions.Identifier;
-import SIB301.table_ids.TableIDs;
-import SIB301.table_ids.TableIDsWithScope;
+
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -17,7 +16,7 @@ public class EFunction extends Expression {
     List<Identifier> params;
     List<Expression> operations;
     String context;
-    TableIDsWithScope<Expression> table;
+    EContext<Expression> eContext;
 
     public Expression getResult() {
         return result;
@@ -33,20 +32,20 @@ public class EFunction extends Expression {
 
 
 
-    public EFunction(TableIDsWithScope<Expression> table, String context, List<Expression> operations, Expression result, List<Identifier> params) {
+    public EFunction(EContext<Expression> eContext, String context, List<Expression> operations, Expression result, List<Identifier> params) {
         this.result = result;
-        this.table = table;
+        this.eContext = eContext;
         this.context = context;
         this.params = params;
         this.operations = operations;
     }
 
-    public EFunction(TableIDsWithScope<Expression> table, String context, List<Expression> operations, Expression result) {
-        this(table, context, operations, result, new ArrayList<>());
+    public EFunction(EContext<Expression> eContext, String context, List<Expression> operations, Expression result) {
+        this(eContext, context, operations, result, new ArrayList<>());
     }
 
-    public EFunction(TableIDsWithScope<Expression> table, String context) {
-        this(table, context, new ArrayList<>(), new None());
+    public EFunction(EContext<Expression> eContext, String context) {
+        this(eContext, context, new ArrayList<>(), new None());
     }
 
     public List<Identifier> getParams() {
@@ -54,7 +53,7 @@ public class EFunction extends Expression {
     }
 
     public void addParam( String name) {
-        Identifier identifier = new Identifier(table, getContext() + name);
+        Identifier identifier = new Identifier(eContext, getContext() +'.' + name);
         this.params.add(identifier);
     }
 
@@ -68,7 +67,7 @@ public class EFunction extends Expression {
 
     public void setValuesParams(List<Expression> params) {
         for (int i = 0; i < params.size(); i++) {
-            this.params.get(i).putExpression(params.get(i).interpreter());
+            eContext.addChild(this.params.get(i).getIdentifier(),params.get(i));
         }
     }
 

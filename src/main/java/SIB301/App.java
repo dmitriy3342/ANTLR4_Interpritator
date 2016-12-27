@@ -81,6 +81,53 @@ public class App {
     public static void main(String[] args) {
         String expression = getExp1();
 
+        String ex = "" +
+                "                                                                                                   \n" +
+                "       a=10;                                                                                            \n" +
+                "       print(a);                                                                                            \n" +
+                "                                                                                                   \n" +
+                "       fun1(param){                                                                                            \n" +
+                "           forearch(0:p){                                                                                               \n" +
+                "                                                                                                          \n" +
+                "           print(\"*\");                                                                                               \n" +
+                "           }                                                                                              \n" +
+                "       return 0;                                                                                            \n" +
+                "       }                                                                                            \n" +
+                "        p=4;                                                                                          \n" +
+                "       fun1(p);                                                                                            \n" +
+                "           p=10;                                                                                          \n" +
+                "       fun1(p);                                                                                          \n" +
+                "                                                                                                   \n" +
+                "       if(p<5){                                                                                            \n" +
+                "       print(\"Выводим информацию о событии p<5\");                                                                                            \n" +
+                "       }else{                                                                                            \n" +
+                "         print(\"Выводим информацию о событии p>5\");                                                                                           \n" +
+                "        }                                                                                           \n" +
+                "                                                                                                   \n" +
+                "                                                                                                   \n" +
+                "                                                                                                   \n" +
+                "          class myClass{                                                                                       \n" +
+                "                                                                                                 \n" +
+                "            sumStr(str1,str2){                                                                                       \n" +
+                "                                                                                             \n" +
+                "               return str1 + str2;                                                                             \n" +
+                "             }                                                                                               \n" +
+                "                                                                                                             \n" +
+                "           }                                                                                                 \n" +
+                "                                                                                                   \n" +
+                "            str1 = \"Hello \";                                                                                       \n" +
+                "            str2 = \"World \";                                                                                       \n" +
+                "            print(myClass.sumStr(str1,str2));                                                                                       \n" +
+                "                                                                                                   \n" +
+                "                                                                                                   \n" +
+                "                                                                                                   \n" +
+                "                                                                                                   \n" +
+                "                                                                                                   \n" +
+                "                                                                                                   \n" +
+                "                                                                                                   \n" +
+                "                                                                                                 \n" +
+                "\n";
+
         //Оптимизация ))
         while (expression.contains("  ")) {
             expression = expression.replace("  ", " ");

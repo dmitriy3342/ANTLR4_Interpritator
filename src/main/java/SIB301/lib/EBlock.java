@@ -1,9 +1,8 @@
 package SIB301.lib;
 
 import SIB301.lib.atoms.None;
+import SIB301.lib.context.EContext;
 import SIB301.lib.expressions.Expression;
-import SIB301.lib.expressions.Identifier;
-import SIB301.table_ids.TableIDsWithScope;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,17 +10,17 @@ import java.util.List;
 public class EBlock extends Expression{
     List<Expression> operations;
     String context;
-    TableIDsWithScope<Expression> table;
+    EContext<Expression> eContext;
 
 
-    public EBlock(TableIDsWithScope<Expression> table, String context, List<Expression> operations) {
-        this.table = table;
+    public EBlock(EContext<Expression> table, String context, List<Expression> operations) {
+        this.eContext = table;
         this.context = context;
         this.operations = operations;
     }
 
 
-    public EBlock(TableIDsWithScope<Expression> table, String context) {
+    public EBlock(EContext<Expression> table, String context) {
         this(table, context, new ArrayList<>());
     }
 

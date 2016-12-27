@@ -1,6 +1,5 @@
 grammar Expression;
 
-
 //Parser Rules
 start: exprBlock ;
 
@@ -67,9 +66,10 @@ objectValue : // Get element
 
 
 
-initaialFunction :  functionName = identificator '(' SEP* ( params SEP*)* ( ',' params SEP*)*    ')'   '{' ( SEP | NEWLINE)*
+initaialFunction :  ( SEP | NEWLINE)* functionName = identificator '(' SEP* ( params SEP*)* ( ',' params SEP*)*    ')'   '{' ( SEP | NEWLINE)*
                     (( ( SEP | NEWLINE)* expr ';' ( SEP | NEWLINE)*) |
-                    ( ( SEP | NEWLINE)* ifalse ( SEP | NEWLINE)*))*
+                    ( ( SEP | NEWLINE)* ifalse ( SEP | NEWLINE)*)  |
+                     ( ( SEP | NEWLINE)* forel ( SEP | NEWLINE)*))*
                     ( SEP | NEWLINE)* 'return' SEP+  myreturn ';'
                      ( SEP | NEWLINE)* '}'
 ;
@@ -203,10 +203,11 @@ SEP : [ \t]+? ;
 
 
 
-//WS  :  [ \t\r\n\u000C]+ -> skip
-//    ;
+WS  :  [ \t\r\n\u000C]+ -> skip
+    ;
 
 
+//REP : '  ' -> VARCHAR ;
 
 COMMENT
     :   '/*' .*? '*/' -> skip
