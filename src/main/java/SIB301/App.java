@@ -77,7 +77,8 @@ public class App {
 
 
 //        final String FILE_NAME = "test1.universal";
-        final String FILE_NAME = "test2.universal";
+//        final String FILE_NAME = "test2.universal";
+        final String FILE_NAME = "test3.universal";
         String source = getSourceInFile(new File("code" + File.separator + FILE_NAME));
         if(!source.isEmpty())
             start(source);

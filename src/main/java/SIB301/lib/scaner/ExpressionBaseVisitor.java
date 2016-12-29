@@ -1,4 +1,4 @@
-// Generated from D:/Учёба/4 Курс/СПО/lab_4/src/main/java/SIB301\Expression.g4 by ANTLR 4.5.3
+// Generated from D:/Учёба/4 Курс/СПО/lab_4/src/main/java/SIB301\Expression.g4 by ANTLR 4.6
 package SIB301.lib.scaner;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 

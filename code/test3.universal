@@ -1,0 +1,21 @@
+//TESTING ARRAY
+
+print("Testing array");
+
+arr1 = new List(10,20,30);
+
+printArr(){
+    print("\n");
+    print("arr1[0] : " + arr1[0]);
+    print("arr1[1] : " + arr1[1]);
+    print("arr1[2] : " + arr1[2]);
+    return 0;
+}
+
+printArr();
+
+print("\narr1[0] = 99;");
+
+arr1[0] = 99;
+
+printArr();

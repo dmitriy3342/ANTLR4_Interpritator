@@ -1,4 +1,4 @@
-// Generated from D:/Учёба/4 Курс/СПО/lab_4/src/main/java/SIB301\Expression.g4 by ANTLR 4.5.3
+// Generated from D:/Учёба/4 Курс/СПО/lab_4/src/main/java/SIB301\Expression.g4 by ANTLR 4.6
 package SIB301.lib.scaner;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -11,7 +11,7 @@ import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class ExpressionLexer extends Lexer {
-	static { RuntimeMetaData.checkVersion("4.5.3", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.6", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =

@@ -16,7 +16,6 @@ expr:
     |   SEP exprCenter = expr
     |   exprCenter = expr SEP
 
-//    |   arrayCreate
     |   arrayAssignedItem
     |   arrayGet
 
@@ -111,7 +110,6 @@ arrayCreate : identificator SEP* '=' SEP* 'new' SEP+ 'List('(SEP* params SEP*)* 
 arrayAssignedItem : identificator '[' SEP* index = expr SEP* ']'SEP* '=' SEP* value = expr;
 
 
-
 forel : ( SEP | NEWLINE)* 'forearch' SEP* '('  ( SEP | NEWLINE)* var = params ( SEP | NEWLINE)* ':' ( SEP | NEWLINE)* vars = params  ( SEP | NEWLINE)* ')'( SEP | NEWLINE)*
             '{'( SEP | NEWLINE)*
               ( forelBody )*
@@ -203,8 +201,7 @@ SEP : [ \t]+? ;
 
 
 
-WS  :  [ \t\r\n\u000C]+ -> skip
-    ;
+//WS  :  [ \t\r\n\u000C]+ -> skip;
 
 
 //REP : '  ' -> VARCHAR ;

@@ -1,4 +1,4 @@
-// Generated from D:/Учёба/4 Курс/СПО/lab_4/src/main/java/SIB301\Expression.g4 by ANTLR 4.5.3
+// Generated from D:/Учёба/4 Курс/СПО/lab_4/src/main/java/SIB301\Expression.g4 by ANTLR 4.6
 package SIB301.lib.scaner;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class ExpressionParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.5.3", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.6", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -21,7 +21,7 @@ public class ExpressionParser extends Parser {
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
 		T__17=18, T__18=19, T__19=20, T__20=21, IDENTIFIER=22, STRING=23, CHAR=24, 
 		BOOLEAN=25, PLUS=26, MINUS=27, DEL=28, MUL=29, LPAM=30, RPAM=31, NUMBER=32, 
-		NEWLINE=33, SEP=34, WS=35, COMMENT=36, LINE_COMMENT=37;
+		NEWLINE=33, SEP=34, COMMENT=35, LINE_COMMENT=36;
 	public static final int
 		RULE_start = 0, RULE_exprBlock = 1, RULE_exprLine = 2, RULE_expr = 3, 
 		RULE_print = 4, RULE_objectAssignment = 5, RULE_objectValue = 6, RULE_initaialFunction = 7, 
@@ -48,7 +48,7 @@ public class ExpressionParser extends Parser {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, "IDENTIFIER", 
 		"STRING", "CHAR", "BOOLEAN", "PLUS", "MINUS", "DEL", "MUL", "LPAM", "RPAM", 
-		"NUMBER", "NEWLINE", "SEP", "WS", "COMMENT", "LINE_COMMENT"
+		"NUMBER", "NEWLINE", "SEP", "COMMENT", "LINE_COMMENT"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -288,7 +288,10 @@ public class ExpressionParser extends Parser {
 					_la = _input.LA(1);
 					if ( !(_la==NEWLINE || _la==SEP) ) {
 					_errHandler.recoverInline(this);
-					} else {
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
 						consume();
 					}
 					}
@@ -607,7 +610,10 @@ public class ExpressionParser extends Parser {
 						_la = _input.LA(1);
 						if ( !(_la==DEL || _la==MUL) ) {
 							((ExprContext)_localctx).op = (Token)_errHandler.recoverInline(this);
-						} else {
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
 							consume();
 						}
 						setState(129);
@@ -627,7 +633,10 @@ public class ExpressionParser extends Parser {
 						_la = _input.LA(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
 							((ExprContext)_localctx).op = (Token)_errHandler.recoverInline(this);
-						} else {
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
 							consume();
 						}
 						setState(132);
@@ -647,7 +656,10 @@ public class ExpressionParser extends Parser {
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << T__2) | (1L << T__3))) != 0)) ) {
 							((ExprContext)_localctx).op = (Token)_errHandler.recoverInline(this);
-						} else {
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
 							consume();
 						}
 						setState(135);
@@ -1098,7 +1110,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -1198,7 +1213,10 @@ public class ExpressionParser extends Parser {
 					_la = _input.LA(1);
 					if ( !(_la==NEWLINE || _la==SEP) ) {
 					_errHandler.recoverInline(this);
-					} else {
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
 						consume();
 					}
 					}
@@ -1231,7 +1249,10 @@ public class ExpressionParser extends Parser {
 								_la = _input.LA(1);
 								if ( !(_la==NEWLINE || _la==SEP) ) {
 								_errHandler.recoverInline(this);
-								} else {
+								}
+								else {
+									if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+									_errHandler.reportMatch(this);
 									consume();
 								}
 								}
@@ -1256,7 +1277,10 @@ public class ExpressionParser extends Parser {
 								_la = _input.LA(1);
 								if ( !(_la==NEWLINE || _la==SEP) ) {
 								_errHandler.recoverInline(this);
-								} else {
+								}
+								else {
+									if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+									_errHandler.reportMatch(this);
 									consume();
 								}
 								}
@@ -1282,7 +1306,10 @@ public class ExpressionParser extends Parser {
 							_la = _input.LA(1);
 							if ( !(_la==NEWLINE || _la==SEP) ) {
 							_errHandler.recoverInline(this);
-							} else {
+							}
+							else {
+								if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+								_errHandler.reportMatch(this);
 								consume();
 							}
 							}
@@ -1304,7 +1331,10 @@ public class ExpressionParser extends Parser {
 								_la = _input.LA(1);
 								if ( !(_la==NEWLINE || _la==SEP) ) {
 								_errHandler.recoverInline(this);
-								} else {
+								}
+								else {
+									if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+									_errHandler.reportMatch(this);
 									consume();
 								}
 								}
@@ -1331,7 +1361,10 @@ public class ExpressionParser extends Parser {
 								_la = _input.LA(1);
 								if ( !(_la==NEWLINE || _la==SEP) ) {
 								_errHandler.recoverInline(this);
-								} else {
+								}
+								else {
+									if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+									_errHandler.reportMatch(this);
 									consume();
 								}
 								}
@@ -1354,7 +1387,10 @@ public class ExpressionParser extends Parser {
 								_la = _input.LA(1);
 								if ( !(_la==NEWLINE || _la==SEP) ) {
 								_errHandler.recoverInline(this);
-								} else {
+								}
+								else {
+									if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+									_errHandler.reportMatch(this);
 									consume();
 								}
 								}
@@ -1384,7 +1420,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -1429,7 +1468,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -1587,6 +1629,7 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 			}
 			setState(365);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__5) {
 				{
@@ -1657,6 +1700,7 @@ public class ExpressionParser extends Parser {
 		enterRule(_localctx, 20, RULE_params);
 		try {
 			setState(371);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IDENTIFIER:
 				enterOuterAlt(_localctx, 1);
@@ -1850,7 +1894,10 @@ public class ExpressionParser extends Parser {
 					_la = _input.LA(1);
 					if ( !(_la==NEWLINE || _la==SEP) ) {
 					_errHandler.recoverInline(this);
-					} else {
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
 						consume();
 					}
 					}
@@ -1898,7 +1945,10 @@ public class ExpressionParser extends Parser {
 							_la = _input.LA(1);
 							if ( !(_la==NEWLINE || _la==SEP) ) {
 							_errHandler.recoverInline(this);
-							} else {
+							}
+							else {
+								if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+								_errHandler.reportMatch(this);
 								consume();
 							}
 							}
@@ -1925,7 +1975,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -1947,7 +2000,10 @@ public class ExpressionParser extends Parser {
 					_la = _input.LA(1);
 					if ( !(_la==NEWLINE || _la==SEP) ) {
 					_errHandler.recoverInline(this);
-					} else {
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
 						consume();
 					}
 					}
@@ -1974,7 +2030,10 @@ public class ExpressionParser extends Parser {
 					_la = _input.LA(1);
 					if ( !(_la==NEWLINE || _la==SEP) ) {
 					_errHandler.recoverInline(this);
-					} else {
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
 						consume();
 					}
 					}
@@ -1996,7 +2055,10 @@ public class ExpressionParser extends Parser {
 						_la = _input.LA(1);
 						if ( !(_la==NEWLINE || _la==SEP) ) {
 						_errHandler.recoverInline(this);
-						} else {
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
 							consume();
 						}
 						}
@@ -2044,7 +2106,10 @@ public class ExpressionParser extends Parser {
 								_la = _input.LA(1);
 								if ( !(_la==NEWLINE || _la==SEP) ) {
 								_errHandler.recoverInline(this);
-								} else {
+								}
+								else {
+									if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+									_errHandler.reportMatch(this);
 									consume();
 								}
 								}
@@ -2071,7 +2136,10 @@ public class ExpressionParser extends Parser {
 					_la = _input.LA(1);
 					if ( !(_la==NEWLINE || _la==SEP) ) {
 					_errHandler.recoverInline(this);
-					} else {
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
 						consume();
 					}
 					}
@@ -2687,7 +2755,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -2724,7 +2795,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -2745,7 +2819,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -2766,7 +2843,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -2787,7 +2867,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -2808,7 +2891,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -2830,7 +2916,10 @@ public class ExpressionParser extends Parser {
 					_la = _input.LA(1);
 					if ( !(_la==NEWLINE || _la==SEP) ) {
 					_errHandler.recoverInline(this);
-					} else {
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
 						consume();
 					}
 					}
@@ -2866,7 +2955,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -2963,7 +3055,10 @@ public class ExpressionParser extends Parser {
 						_la = _input.LA(1);
 						if ( !(_la==NEWLINE || _la==SEP) ) {
 						_errHandler.recoverInline(this);
-						} else {
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
 							consume();
 						}
 						}
@@ -3002,7 +3097,10 @@ public class ExpressionParser extends Parser {
 						_la = _input.LA(1);
 						if ( !(_la==NEWLINE || _la==SEP) ) {
 						_errHandler.recoverInline(this);
-						} else {
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
 							consume();
 						}
 						}
@@ -3028,7 +3126,10 @@ public class ExpressionParser extends Parser {
 						_la = _input.LA(1);
 						if ( !(_la==NEWLINE || _la==SEP) ) {
 						_errHandler.recoverInline(this);
-						} else {
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
 							consume();
 						}
 						}
@@ -3225,7 +3326,10 @@ public class ExpressionParser extends Parser {
 					_la = _input.LA(1);
 					if ( !(_la==NEWLINE || _la==SEP) ) {
 					_errHandler.recoverInline(this);
-					} else {
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
 						consume();
 					}
 					}
@@ -3273,7 +3377,10 @@ public class ExpressionParser extends Parser {
 							_la = _input.LA(1);
 							if ( !(_la==NEWLINE || _la==SEP) ) {
 							_errHandler.recoverInline(this);
-							} else {
+							}
+							else {
+								if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+								_errHandler.reportMatch(this);
 								consume();
 							}
 							}
@@ -3300,7 +3407,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -3322,7 +3432,10 @@ public class ExpressionParser extends Parser {
 					_la = _input.LA(1);
 					if ( !(_la==NEWLINE || _la==SEP) ) {
 					_errHandler.recoverInline(this);
-					} else {
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
 						consume();
 					}
 					}
@@ -3401,7 +3514,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -3422,7 +3538,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -3443,7 +3562,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -3465,7 +3587,10 @@ public class ExpressionParser extends Parser {
 					_la = _input.LA(1);
 					if ( !(_la==NEWLINE || _la==SEP) ) {
 					_errHandler.recoverInline(this);
-					} else {
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
 						consume();
 					}
 					}
@@ -3493,7 +3618,10 @@ public class ExpressionParser extends Parser {
 							_la = _input.LA(1);
 							if ( !(_la==NEWLINE || _la==SEP) ) {
 							_errHandler.recoverInline(this);
-							} else {
+							}
+							else {
+								if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+								_errHandler.reportMatch(this);
 								consume();
 							}
 							}
@@ -3516,7 +3644,10 @@ public class ExpressionParser extends Parser {
 							_la = _input.LA(1);
 							if ( !(_la==NEWLINE || _la==SEP) ) {
 							_errHandler.recoverInline(this);
-							} else {
+							}
+							else {
+								if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+								_errHandler.reportMatch(this);
 								consume();
 							}
 							}
@@ -3543,7 +3674,10 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 				if ( !(_la==NEWLINE || _la==SEP) ) {
 				_errHandler.recoverInline(this);
-				} else {
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
 					consume();
 				}
 				}
@@ -3812,6 +3946,7 @@ public class ExpressionParser extends Parser {
 				_la = _input.LA(1);
 			}
 			setState(893);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__5) {
 				{
@@ -3928,7 +4063,10 @@ public class ExpressionParser extends Parser {
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << STRING) | (1L << CHAR) | (1L << BOOLEAN) | (1L << NUMBER))) != 0)) ) {
 			_errHandler.recoverInline(this);
-			} else {
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
 				consume();
 			}
 			}
@@ -3968,7 +4106,7 @@ public class ExpressionParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\'\u0388\4\2\t\2\4"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3&\u0388\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+

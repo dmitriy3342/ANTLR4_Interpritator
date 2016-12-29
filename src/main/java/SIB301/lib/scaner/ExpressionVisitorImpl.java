@@ -247,8 +247,12 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
     @Override
     public Expression visitArrayAssignedItem(ExpressionParser.ArrayAssignedItemContext ctx) {
         LogStats.println("(visitArrayAssignedItem)" + getCurrenContext() + ctx.identificator().getText());
+
         EArray eArray = (EArray) eContext.findChild(getCurrenContext() + ctx.identificator().getText());
-        return new EArraySet(eArray, visit(ctx.index), visit(ctx.index));
+
+        EArraySet eArraySet =  new EArraySet(eArray, visit(ctx.index), visit(ctx.value));
+        if (getCurrenContext().isEmpty() && !isSycle()) eArraySet.interpreter();
+        return eArraySet;
     }
 
     @Override
