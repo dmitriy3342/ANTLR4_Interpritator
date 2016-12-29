@@ -32,4 +32,10 @@ public class EChar extends Expression implements Atom {
     public String toString() {
         return value.toString();
     }
+
+
+    @Override
+    public Expression clone() {
+        return new EChar(value);
+    }
 }

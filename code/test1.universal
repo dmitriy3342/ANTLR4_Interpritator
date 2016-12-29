@@ -1,0 +1,67 @@
+//CODE FOR UNIVERSAL LANGUAGE
+//ВЕТВЛЕНИЕ И ФУНКЦИЯ
+
+print("Старт программы ");
+
+fun(a){
+    if(a<5){
+        print(5);
+    }else{
+        print(6);
+    }
+    return 0;
+}
+t = 3;
+fun(t);
+
+//ЦИКЛ
+
+print("\nForearch");
+s1 = "s";
+s2 = "asdfg";
+
+forearch( s1 : s2 ) {
+    print(s1);
+}
+
+//КЛАСС
+
+print("\nClass");
+
+class mailclass {
+    a = 10;
+    b = 30;
+    method1(){
+        return a+b;
+    }
+}
+
+print(mailclass.method1());
+print(mailclass.b);
+
+class mylib{
+    sort(str){
+        tmp =  " GG ";
+        return str + tmp;
+    }
+}
+
+temp = "Just String";
+print(mylib.sort(temp));
+
+//РАБОТА С МАССИВОМ
+
+print("\nArray");
+arr1 = new List(10,30);
+print(arr1[0] + arr1[1]);
+
+//ВЛОЖЕННЫЙ МАССИВ
+
+i = 0;
+forearch(i:2){
+    j=i;
+    forearch(jj:3){
+        print(i + " : " + j);
+    }
+    print("\n");
+}

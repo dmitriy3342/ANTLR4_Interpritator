@@ -36,4 +36,9 @@ public class EString extends Expression implements Atom {
     public String toString() {
         return value;
     }
+
+    @Override
+    public Expression clone() {
+        return new EString(value);
+    }
 }

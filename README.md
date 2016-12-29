@@ -1,6 +1,8 @@
-# ANTLR4_Interpritator
+# UNIVERSAL LANGUAGE INTERPRITATOR ON ANTLR4
 
 Проект представляет собой интерпритатор смешанного языка программирования.
+
+Файлы с кодом имеют разширение (*.universal).
 
 Проект создан в учебных целях.
 

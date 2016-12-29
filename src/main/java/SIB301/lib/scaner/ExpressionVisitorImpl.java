@@ -206,9 +206,11 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
         if (ctx.identificator() != null) {
             Identifier identifier = (Identifier) visitIdentificator(ctx.identificator());
             Expression tmp = visit(ctx.expr());
-            identifier.putExpression(tmp);
+            Assignment assignment = new Assignment(identifier,tmp);
+//            identifier.putExpression(tmp);
             LogStats.println("(visitObjectAssignment) " + ctx.identificator().getText() + " = " + tmp + ";");
-            return identifier;
+            if (getCurrenContext().isEmpty() && !isSycle()) assignment.interpreter();
+            return assignment;
         }
 
         return defaultResult();//new Identifier(eContext);
@@ -300,6 +302,11 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
             eFunction.addParam(param.identificator().getText());
         }
 
+        for (ExpressionParser.ExprContext expr : ctx.expr()) {
+            LogStats.println(getCurrenContext() + " add : " + expr.getText());
+            eFunction.addOperation(visitExpr(expr));
+        }
+
         for (ExpressionParser.IfalseContext ifalseContext : ctx.ifalse()) {
             LogStats.println(getCurrenContext() + " add : " + ifalseContext.getText());
             eFunction.addOperation(visitIfalse(ifalseContext));
@@ -310,10 +317,7 @@ public class ExpressionVisitorImpl extends ExpressionBaseVisitor<Expression> {
         }
 
 
-        for (ExpressionParser.ExprContext expr : ctx.expr()) {
-            LogStats.println(getCurrenContext() + " add : " + expr.getText());
-            eFunction.addOperation(visitExpr(expr));
-        }
+
 
         eFunction.setResult(visitExpr(ctx.myreturn().expr()));
 

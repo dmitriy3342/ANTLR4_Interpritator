@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class EFunction extends Expression {
 
     List<Identifier> params;
@@ -29,7 +28,6 @@ public class EFunction extends Expression {
     Expression result;
 
     //Массив параметров в ввиде набора идентификаторов
-
 
 
     public EFunction(EContext<Expression> eContext, String context, List<Expression> operations, Expression result, List<Identifier> params) {
@@ -52,8 +50,8 @@ public class EFunction extends Expression {
         return params;
     }
 
-    public void addParam( String name) {
-        Identifier identifier = new Identifier(eContext, getContext() +'.' + name);
+    public void addParam(String name) {
+        Identifier identifier = new Identifier(eContext, getContext() + '.' + name);
         this.params.add(identifier);
     }
 
@@ -61,13 +59,10 @@ public class EFunction extends Expression {
         this.operations.add(expression);
     }
 
-    public void add(Expression expression) {
-        this.operations.add(expression);
-    }
 
     public void setValuesParams(List<Expression> params) {
         for (int i = 0; i < params.size(); i++) {
-            eContext.addChild(this.params.get(i).getIdentifier(),params.get(i));
+            eContext.addChild(this.params.get(i).getIdentifier(), params.get(i));
         }
     }
 
@@ -80,16 +75,15 @@ public class EFunction extends Expression {
     }
 
 
-    public String getContext(){
-        if(!context.isEmpty())
-            return context ;
+    public String getContext() {
+        if (!context.isEmpty())
+            return context;
         else return context;
     }
 
     @Override
     public Expression interpreter() {
-        for (Expression expr :
-                operations) {
+        for (Expression expr : operations) {
             expr.interpreter();
         }
         return result;

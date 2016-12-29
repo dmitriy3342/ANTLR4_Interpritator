@@ -30,4 +30,9 @@ public class EInt extends Expression implements Atom {
     public String toString() {
         return value.toString();
     }
+
+    @Override
+    public Expression clone() {
+        return new EInt(value);
+    }
 }
