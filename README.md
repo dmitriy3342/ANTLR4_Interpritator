@@ -1,14 +1,13 @@
 # UNIVERSAL LANGUAGE INTERPRITATOR ON ANTLR4
 
-Проект представляет собой интерпритатор смешанного языка программирования.
+The project is an interpreter of mixed language programming.
 
-Файлы с кодом имеют разширение (*.universal).
+Code files have the extender (*.universal).
 
-Проект создан в учебных целях.
+The project was created for educational purposes.
 
-## Уже реализованно
 
-### Поддержка объектов
+### Object support
 
 ```Java
  class ClassName {
@@ -18,13 +17,13 @@
     } 
  }
  
- str1 = "Строка1"
+ str1 = "String1"
  tmp1 = ClassName.fun1(str1);
  print(tmp1);
 ```
->"Строка1"
+>"String1"
 
-### Цикл forearch
+### Loop forearch
 
 ```Java
 a = 0;
@@ -40,4 +39,4 @@ forearch(a,3){
 
 >3
 
-### И много другого
+### and so on
